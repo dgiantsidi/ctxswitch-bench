@@ -71,8 +71,8 @@ static inline void pollute_cache(std::unique_ptr<int[]>& tmp) {
             auto delta = time_ns(&ts) - start_ns;
 
             constexpr int nswitches = iterations << 2;
-            fmt::print("{}\tctx_switches={}\ttime={}ns\t{}ns/ctxsw\tcycles={}\t\n", __func__,
-                    nswitches, delta, (delta / (float) nswitches), delta_cycles);
+            fmt::print("{}\tctx_switches={}\ttime={}ns\t{}ns/ctxsw\tcycles={}\tavg_lat={}cycles/ctx\n", __func__,
+                    nswitches, delta, (delta / (float) nswitches), delta_cycles, delta_cycles/nswitches);
 
             thd.join();
             return 0;
