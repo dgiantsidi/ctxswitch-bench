@@ -5,3 +5,4 @@ syscall_lat
 ctxswitch
 ctxswitch-pipes
 ctxswitch-cache_pollution
+fibers_ctx
