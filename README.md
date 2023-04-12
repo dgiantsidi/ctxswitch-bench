@@ -31,3 +31,13 @@ Measures the latency of a syscall
 
 ### fibers_ctx
 Instead of threads we use userlevel threading (fibers from `boost`). This was much faster.
+
+
+### Command to run it on UoE scone version (not public)
+`
+Hugepagesize=2097152 \
+        LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/ \
+        SCONE_VERSION=1 SCONE_LOG=0 SCONE_QUEUES=8 SCONE_NO_FS_SHIELD=1 \
+        SCONE_NO_MMAP_ACCESS=1 SCONE_HEAP=8G SCONE_LD_DEBUG=1 SCONE_MODE=hw \
+        /opt/scone/lib/ld-scone-x86_64.so.1 ./executable
+`
